@@ -27,7 +27,6 @@ namespace SzoftverSzigo
 
             TesztOsszetettRendezesek();
 
-            Console.ReadLine();
         }
 
         private static void TesztOsszetettRendezesek()
