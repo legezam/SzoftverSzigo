@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SzoftverSzigo.BTree
+﻿namespace SzoftverSzigo.BTree
 {
     public class BinaryTreeNode<T> : Node<T>
     {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SzoftverSzigo {
+﻿namespace SzoftverSzigo {
     public class EgyszeruRendezesek
     {
         public static int[] CseresRendezes(int[] tomb, int tombMeret) 
