@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SzoftverSzigo.BTree;
 
 
 namespace SzoftverSzigo
@@ -27,6 +29,48 @@ namespace SzoftverSzigo
 
             TesztOsszetettRendezesek();
 
+            TesztKeresoFak();
+
+            Console.ReadLine();
+        }
+
+        private static void TesztKeresoFak()
+        {
+            BinarySearchTree<int> bst = new BinarySearchTree<int>();
+
+            bst.AddNode(10);
+            bst.AddNode(4);
+            bst.AddNode(6);
+            bst.AddNode(3);
+            bst.AddNode(1);
+            bst.AddNode(7);
+            bst.AddNode(5);
+            bst.AddNode(-1);
+
+            List<BinaryTreeNode<int>> inOrderResult = new List<BinaryTreeNode<int>>();
+            bst.TraverseNode(TraverseMode.InOrder, inOrderResult.Add);
+            Console.WriteLine("Inorder eredmény: [{0}]", GenArrayStringResult(inOrderResult.ToArray()));
+
+            List<BinaryTreeNode<int>> preOrderResult = new List<BinaryTreeNode<int>>();
+            bst.TraverseNode(TraverseMode.PreOrder, preOrderResult.Add);
+            Console.WriteLine("Preorder eredmény: [{0}]", GenArrayStringResult(preOrderResult.ToArray()));
+
+            List<BinaryTreeNode<int>> postOrderResult = new List<BinaryTreeNode<int>>();
+            bst.TraverseNode(TraverseMode.PostOrder, postOrderResult.Add);
+            Console.WriteLine("Postorder eredmény: [{0}]", GenArrayStringResult(postOrderResult.ToArray()));
+
+            var searchResult = bst.SearchNode(-20);
+            searchResult = bst.SearchNode(4);
+            bst.RemoveNode(4);
+            searchResult = bst.SearchNode(4);
+            searchResult = bst.SearchNode(5);
+            bst.RemoveNode(6);
+            searchResult = bst.SearchNode(6);
+            bst.RemoveNode(-1);
+
+            inOrderResult = new List<BinaryTreeNode<int>>();
+            bst.TraverseNode(TraverseMode.InOrder, inOrderResult.Add);
+            Console.WriteLine("Inorder eredmény: [{0}]", GenArrayStringResult(inOrderResult.ToArray()));
         }
 
         private static void TesztOsszetettRendezesek()
@@ -157,7 +201,7 @@ namespace SzoftverSzigo
             Console.WriteLine("Maximumkiválasztás: {0}", maximumKivalasztasResult);
         }
 
-        private static StringBuilder GenArrayStringResult(int[] masolasResult)
+        private static StringBuilder GenArrayStringResult<T>(T[] masolasResult)
         {
             StringBuilder masolasOut = new StringBuilder();
             Array.ForEach(masolasResult, item => masolasOut.Append(string.Format("{0, 2}, ", item)));

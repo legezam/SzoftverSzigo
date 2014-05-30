@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BTree\BinarySearchTree.cs" />
+    <Compile Include="BTree\BinaryTree.cs" />
+    <Compile Include="BTree\BinaryTreenode.cs" />
+    <Compile Include="BTree\Node.cs" />
+    <Compile Include="BTree\NodeList.cs" />
     <Compile Include="Tetelek\EgyszeruRendezesek.cs" />
     <Compile Include="Tetelek\EgyszeruTetelek.cs" />
     <Compile Include="Tetelek\OsszetettRendezesek.cs" />
