@@ -9,7 +9,7 @@
                 {
                     if (tomb[i] > tomb[j])
                     {
-                        Csere(tomb, i, j);
+                        Util.Util.Csere(tomb, i, j);
                     }
                 }
             }
@@ -29,7 +29,7 @@
                         MIN = j;
                     } 
                 }
-                Csere(tomb, i, MIN);
+                Util.Util.Csere(tomb, i, MIN);
             }
             return tomb;
         }
@@ -42,7 +42,7 @@
                 {
                     if (tomb[j] > tomb[j + 1])
                     {
-                        Csere(tomb, j, j + 1);
+                        Util.Util.Csere(tomb, j, j + 1);
                     }
                 }
             }
@@ -60,7 +60,7 @@
                 {
                     if (tomb[j] > tomb[j + 1])
                     {
-                        Csere(tomb, j, j + 1);
+                        Util.Util.Csere(tomb, j, j + 1);
                         CS = j;
                     }
                 }
@@ -76,7 +76,7 @@
                 int j = i - 1;
                 while (j >= 0 && tomb[j] > tomb[j + 1])
                 {
-                    Csere(tomb, j, j + 1);
+                    Util.Util.Csere(tomb, j, j + 1);
                     j = j - 1;
                 }
             }
@@ -127,13 +127,6 @@
 
 
             return tomb;
-        }
-
-        private static void Csere<T>(T[] tomb, int i, int j)
-        {
-            T tmp = tomb[i];
-            tomb[i] = tomb[j];
-            tomb[j] = tmp;
         }
     }
 }

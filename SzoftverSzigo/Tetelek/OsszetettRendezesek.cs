@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SzoftverSzigo.Util;
 
 namespace SzoftverSzigo
 {
@@ -128,7 +129,7 @@ namespace SzoftverSzigo
             KupacotEpit(tomb, tombMeret);
             for (int i = tombMeret - 1; i >= 1; i--)
             {
-                Csere(tomb, 0, i);
+                Util.Util.Csere(tomb, 0, i);
                 tombMeret = tombMeret - 1;
                 Kupacol(tomb, 0, tombMeret);
             }
@@ -164,17 +165,10 @@ namespace SzoftverSzigo
 
             if (MAX != i)
             {
-                Csere(tomb, i, MAX);
+                Util.Util.Csere(tomb, i, MAX);
                 Kupacol(tomb, MAX, tombMeret);
             }
         }
         #endregion
-
-        private static void Csere(int[] tomb, int i, int j)
-        {
-            int tmp = tomb[i];
-            tomb[i] = tomb[j];
-            tomb[j] = tmp;
-        }
     }
 }

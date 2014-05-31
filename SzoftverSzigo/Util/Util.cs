@@ -24,22 +24,29 @@ namespace SzoftverSzigo.Util
 
             for (int i = 0; i < colLength; i++)
             {
-                result.Append(string.Format("{0, 3} ", i));
+                result.Append(String.Format("{0, 3} ", i));
 
             }
             result.Append(Environment.NewLine + Environment.NewLine);
 
             for (int i = 0; i < rowLength; i++)
             {
-                result.Append(string.Format("{0, 3}|", i));
+                result.Append(String.Format("{0, 3}|", i));
                 for (int j = 0; j < colLength; j++)
                 {
-                    result.Append(string.Format("{0, 3} ", array[i, j]));
+                    result.Append(String.Format("{0, 3} ", array[i, j]));
                 }
                 result.Append(Environment.NewLine + Environment.NewLine);
             }
 
             return result.ToString();
+        }
+
+        public static void Csere(int[] tomb, int i, int j)
+        {
+            int tmp = tomb[i];
+            tomb[i] = tomb[j];
+            tomb[j] = tmp;
         }
     }
 }

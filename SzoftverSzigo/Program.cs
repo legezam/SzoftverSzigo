@@ -18,7 +18,7 @@ namespace SzoftverSzigo
     /// </summary>
     class Program
     {
-        static Random rand = new Random();
+        static readonly Random rand = new Random();
 
         static void Main(string[] args)
         {
@@ -114,7 +114,7 @@ namespace SzoftverSzigo
 
         private static void TesztOsszetettRendezesek()
         {
-            int tombMeret = 10;
+            const int tombMeret = 10;
             int[] tomb = Enumerable.Repeat(0, tombMeret).Select(i => rand.Next(20)).ToArray();
             Console.WriteLine("Összetett tételek: \nkezdeti tömb: [{0}]", Util.Util.GenArrayStringResult(tomb));
 
@@ -136,7 +136,7 @@ namespace SzoftverSzigo
 
         private static void TesztEgyszeruRendezesek()
         {
-            int tombMeret = 10;
+            const int tombMeret = 10;
             int[] tomb = Enumerable.Repeat(0, tombMeret).Select(i => rand.Next(20)).ToArray();
             Console.WriteLine("Összetett tételek: \nkezdeti tömb: [{0}]", Util.Util.GenArrayStringResult(tomb));
 
@@ -183,8 +183,8 @@ namespace SzoftverSzigo
         private static void TesztOsszetettTetelek()
         {
             
-            int[] tomb = new[] {1, 2, 3, 4, 5, 6};
-            int[] masikTomb = new[] {3, 4, 5, 6, 7, 8};
+            int[] tomb = {1, 2, 3, 4, 5, 6};
+            int[] masikTomb = {3, 4, 5, 6, 7, 8};
             Console.WriteLine("Összetett tételek: \nkezdeti tömb1: [{0}],\nkezdeti tömb2: [{1}]\n", Util.Util.GenArrayStringResult(tomb),
                 Util.Util.GenArrayStringResult(masikTomb));
 
