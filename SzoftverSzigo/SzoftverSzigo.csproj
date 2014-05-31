@@ -48,6 +48,7 @@
     <Compile Include="BTree\NodeList.cs" />
     <Compile Include="Tetelek\EgyszeruRendezesek.cs" />
     <Compile Include="Tetelek\EgyszeruTetelek.cs" />
+    <Compile Include="Tetelek\MohoDinamikusAlgoritmusok.cs" />
     <Compile Include="Tetelek\OsszetettRendezesek.cs" />
     <Compile Include="Tetelek\OsszetettTetelek.cs" />
     <Compile Include="Program.cs" />

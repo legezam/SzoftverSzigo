@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SzoftverSzigo.BTree;
+using SzoftverSzigo.Tetelek;
 
 
 namespace SzoftverSzigo
@@ -21,17 +22,38 @@ namespace SzoftverSzigo
 
         static void Main(string[] args)
         {
-            //TesztEgyszeruTetelek();
+            TesztEgyszeruTetelek();
 
-            //TesztOsszetettTetelek();
+            TesztOsszetettTetelek();
 
-            //TesztEgyszeruRendezesek();
+            TesztEgyszeruRendezesek();
 
             TesztOsszetettRendezesek();
 
-            //TesztKeresoFak();
+            TesztKeresoFak();
 
+            TesztMohoDinamikus();
             Console.ReadLine();
+        }
+
+        private static void TesztMohoDinamikus()
+        {
+            int[] visszaadasResult = MohoDinamikusAlgoritmusok.PenzKifizetes(79845);
+            Console.WriteLine("Mohó pénzvisszaadás eredmény: 79845 = [{0}]\n", GenArrayStringResult(visszaadasResult));
+
+            var mohoKincsResult = MohoDinamikusAlgoritmusok.MohoKincsetKeres();
+            Console.WriteLine("Mohó kincseresés eredmény: [{0}]\n", GenArrayStringResult(mohoKincsResult));
+            Console.WriteLine("A visszaadott zárójeles kifejezések értéke:\n" +
+                              "1. lépés száma\n" +
+                              "2. i értéke\n" +
+                              "3. j értéke\n" +
+                              "5. lépés során mekkora értékű mezőre lépett\n");
+
+            int dinamikusResult = MohoDinamikusAlgoritmusok.DinamikusKincsetKeres(3, 3);
+            Console.WriteLine("Dinamikus eredmény: legtávolabbi mező értéke: {0}\n", dinamikusResult);
+
+            //Ezt debugolva érdemes nézni
+            MohoDinamikusAlgoritmusok.DinamikusKincsetKeres();
         }
 
         private static void TesztKeresoFak()
