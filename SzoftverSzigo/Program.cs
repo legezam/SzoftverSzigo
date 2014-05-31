@@ -21,15 +21,15 @@ namespace SzoftverSzigo
 
         static void Main(string[] args)
         {
-            TesztEgyszeruTetelek();
+            //TesztEgyszeruTetelek();
 
-            TesztOsszetettTetelek();
+            //TesztOsszetettTetelek();
 
-            TesztEgyszeruRendezesek();
+            //TesztEgyszeruRendezesek();
 
             TesztOsszetettRendezesek();
 
-            TesztKeresoFak();
+            //TesztKeresoFak();
 
             Console.ReadLine();
         }
@@ -87,6 +87,18 @@ namespace SzoftverSzigo
 
             int[] mergeResult = OsszetettRendezesek.MergeRendezes(tomb, 0, tomb.Length - 1);
             Console.WriteLine("Merge rendezés: [{0}]\n", GenArrayStringResult(mergeResult));
+
+            tomb = Enumerable.Repeat(0, tombMeret).Select(i => rand.Next(20)).ToArray();
+            Console.WriteLine("Összetett tételek: \nkezdeti tömb: [{0}]", GenArrayStringResult(tomb));
+
+            //Ez giga haxxos
+            Array kupacResult = OsszetettRendezesek.KupacRendezes(tomb, tomb.Length);
+            StringBuilder builder = new StringBuilder();
+            foreach (var item in kupacResult)
+            {
+                builder.Append(item + ", ");
+            }
+            Console.WriteLine("Kupac rendezés: [{0}]\n", builder.ToString());
         }
 
         private static void TesztEgyszeruRendezesek()
