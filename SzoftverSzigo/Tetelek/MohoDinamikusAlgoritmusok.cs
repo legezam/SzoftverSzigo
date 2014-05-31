@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -135,11 +136,10 @@ namespace SzoftverSzigo.Tetelek
         }
 
         //A dián lévő számok között van rossz. Pl a 18...16-nál 16 helyett 20 van!
-        private static int[,] DinamikusTerkep;
-        public static void DinamikusKincsetKeres()
+        public static int[,] DinamikusKincsetKeres()
         {
             int kincsesTerkepMeret = (int) Math.Sqrt(KincsesTerkep.Length);
-            DinamikusTerkep = new int[kincsesTerkepMeret, kincsesTerkepMeret];
+            int[,] DinamikusTerkep = new int[kincsesTerkepMeret, kincsesTerkepMeret];
             for (int i = 0; i < kincsesTerkepMeret; i++)
             {
                 for (int j = 0; j < kincsesTerkepMeret; j++)
@@ -147,13 +147,13 @@ namespace SzoftverSzigo.Tetelek
                     DinamikusTerkep[i, j] = DinamikusKincsetKeres(i, j);
                 }
             }
+            return DinamikusTerkep;
         }
         #endregion
 
         #endregion
 
         #region Hátizsák
-
         /// <summary>
         /// Tuple értékek:
         /// 1. tárgy értéke
@@ -161,12 +161,14 @@ namespace SzoftverSzigo.Tetelek
         /// </summary>
         private static readonly List<Tuple<int, int>> Targyak = new List<Tuple<int, int>>()
         {
-            new Tuple<int, int>(60, 10),
-            new Tuple<int, int>(100, 20),
-            new Tuple<int, int>(120, 30)
+            new Tuple<int, int>(int.MinValue , int.MaxValue),//dummy, indexelés miatt kell. Ezt soha nem nézi az algo
+            new Tuple<int, int>(3, 2),
+            new Tuple<int, int>(4, 3),
+            new Tuple<int, int>(5, 4),
+            new Tuple<int, int>(6, 5)
         };
 
-        private static readonly int HatizsakMeret = 50;
+        private const int HatizsakMeret = 6;
 
         public static Tuple<int, int>[] MohoHatizsak()
         {
@@ -184,8 +186,111 @@ namespace SzoftverSzigo.Tetelek
                 i = i + 1;
             }
             return result.ToArray();
-        } 
+        }
 
+        public static Tuple<int, int>[] DinamikusHatizsak()
+        {
+            int[,] eredmenyTomb = GenerateTablazat(Targyak, Targyak.Count , HatizsakMeret);
+            Tuple<int, int>[] eredmenyIndexek = EredmenytKiolvas(eredmenyTomb, Targyak);
+            return eredmenyIndexek;
+        }
+
+        private static Tuple<int,int>[] EredmenytKiolvas(int[,] eredmenyTomb, List<Tuple<int, int>> targyak)
+        {
+            int targy = eredmenyTomb.GetLength(0) - 1;
+            int suly = eredmenyTomb.GetLength(1) - 1;
+            List<Tuple<int, int>> result = new List<Tuple<int, int>>();
+
+            while (targy > 0 && suly > 0)
+            {
+                if (eredmenyTomb[targy, suly] != eredmenyTomb[targy-1, suly])
+                {
+                    result.Add(targyak[targy]);
+                    suly = suly - targyak[targy].Item2;
+                }
+                targy = targy - 1;
+            }
+
+            return result.ToArray();
+        }
+
+        private static int[,] GenerateTablazat(List<Tuple<int, int>> targyak, int targyakSzama, int hatizsakMeret)
+        {
+            int[,] eredmeny = new int[targyakSzama,hatizsakMeret + 1];
+            for (int maxTargy = 1; maxTargy < targyakSzama; maxTargy++)
+            {
+                for (int maxSuly = 1; maxSuly <= hatizsakMeret; maxSuly++)
+                {
+                    var item = targyak[maxTargy];
+                    int ertek = item.Item1;
+                    int suly = item.Item2;
+                    if (suly <= maxSuly)
+                    {
+                        eredmeny[maxTargy, maxSuly] = Math.Max(eredmeny[maxTargy - 1, maxSuly],
+                            eredmeny[maxTargy - 1, maxSuly - suly] + ertek);
+                    }
+                    else
+                    {
+                        eredmeny[maxTargy, maxSuly] = eredmeny[maxTargy - 1, maxSuly];
+                    }
+                }
+            }
+            return eredmeny;
+        }
+        #endregion
+
+        #region LCS
+
+        private static readonly string[] EgyikTomb = {"XXX", "A", "B", "C", "B", "D", "A", "B"};
+        private static readonly string[] MasikTomb = {"YYY", "B", "D", "C", "A", "B", "A"};
+        public static int RekurzivLCS()
+        {
+            return RekurzivLCS(EgyikTomb, EgyikTomb.Length, MasikTomb, MasikTomb.Length);
+        }
+
+        private static int RekurzivLCS(string[] tombX, int tombXMeret, string[] tombY, int tombYMeret)
+        {
+            if (tombXMeret == 0 || tombYMeret == 0)
+            {
+                return 0;
+            }
+            if (tombX[tombXMeret - 1] == tombY[tombYMeret - 1])
+            {
+                return RekurzivLCS(tombX, tombXMeret - 1, tombY, tombYMeret - 1) + 1;
+            }
+            else
+            {
+                return Math.Max(RekurzivLCS(tombX, tombXMeret - 1, tombY, tombYMeret),
+                    RekurzivLCS(tombX, tombXMeret, tombY, tombYMeret - 1));
+            }
+        }
+
+        public static int DinamikusLCS()
+        {
+            var result = DinamikusLCS(EgyikTomb, MasikTomb);
+            return result[result.GetLength(0)-1,result.GetLength(1)-1];
+        }
+
+        private static int[,] DinamikusLCS(string[] tombX, string[] tombY)
+        {
+            int[,] eredmeny = new int[tombX.Length, tombY.Length];
+            for (int i = 1; i < tombX.Length; i++)
+            {
+                for (int j = 1; j < tombY.Length; j++)
+                {
+                    if (tombX[i] == tombY[j])
+                    {
+                        eredmeny[i, j] = eredmeny[i - 1, j - 1] + 1;
+                    }
+                    else
+                    {
+                        eredmeny[i, j] = Math.Max(eredmeny[i - 1, j], eredmeny[i, j - 1]);
+                    }
+                }
+            }
+            string res = Util.Util.GenMulArrayStringResult(eredmeny);
+            return eredmeny;
+        }
         #endregion
     }
 

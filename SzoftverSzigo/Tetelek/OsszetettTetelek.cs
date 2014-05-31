@@ -118,20 +118,17 @@ namespace SzoftverSzigo
                 DB = DB + 1;
                 if (elsoTomb[i] < masodikTomb[j])
                 {
-                    DB = DB + 1;
                     Z.Add(elsoTomb[i]);
                     i = i + 1;
                 }
                 else if (elsoTomb[i] == masodikTomb[j])
                 {
-                    DB = DB + 1;
                     Z.Add(elsoTomb[i]);
                     i = i + 1;
                     j = j + 1;
                 }
                 else
                 {
-                    DB = DB + 1;
                     Z.Add(masodikTomb[j]);
                     j = j + 1;
                 }
