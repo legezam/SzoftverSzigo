@@ -91,14 +91,8 @@ namespace SzoftverSzigo
             tomb = Enumerable.Repeat(0, tombMeret).Select(i => rand.Next(20)).ToArray();
             Console.WriteLine("Összetett tételek: \nkezdeti tömb: [{0}]", GenArrayStringResult(tomb));
 
-            //Ez giga haxxos
-            Array kupacResult = OsszetettRendezesek.KupacRendezes(tomb, tomb.Length);
-            StringBuilder builder = new StringBuilder();
-            foreach (var item in kupacResult)
-            {
-                builder.Append(item + ", ");
-            }
-            Console.WriteLine("Kupac rendezés: [{0}]\n", builder.ToString());
+            int[] kupacresult = OsszetettRendezesek.KupacRendezes(tomb, tomb.Length);
+            Console.WriteLine("Kupac rendezés: [{0}]\n", GenArrayStringResult(kupacresult));
         }
 
         private static void TesztEgyszeruRendezesek()
@@ -149,6 +143,7 @@ namespace SzoftverSzigo
 
         private static void TesztOsszetettTetelek()
         {
+            
             int[] tomb = new[] {1, 2, 3, 4, 5, 6};
             int[] masikTomb = new[] {3, 4, 5, 6, 7, 8};
             Console.WriteLine("Összetett tételek: \nkezdeti tömb1: [{0}],\nkezdeti tömb2: [{1}]", GenArrayStringResult(tomb),

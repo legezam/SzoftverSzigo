@@ -84,8 +84,8 @@ namespace SzoftverSzigo
             {
                 jobbList.Add(tomb[kozepso + j]);
             }
-            balList.Add(int.MaxValue);
-            jobbList.Add(int.MaxValue);
+            balList.Add(Int32.MaxValue);
+            jobbList.Add(Int32.MaxValue);
             int k = 0;
             int l = 0;
 
@@ -107,38 +107,48 @@ namespace SzoftverSzigo
         #endregion
 
         #region KupacSort
-        /// <summary>
-        /// Nem egyszerű ezt a dolgot összehozni. A kupacolban lévő 2*i miatt nehéz 0 indexxel kezdődő tömbökkel megvalósítani.
-        /// Ezért a tömböt a KupacRendezés elején átalakítottam 1-es index-ű tömbbé és úgy megy tovább.
-        /// </summary>
-        public static Array KupacRendezes(int[] tomb, int tombMeret)
-        {
-            var oneBasedArray = CreateOneBasedArray(tomb, tombMeret);
 
-            KupacotEpit(oneBasedArray, tombMeret);
-            for (int i = tombMeret; i >= 2; i--)
-            {
-                Csere(oneBasedArray, 1, i);
-                tombMeret = tombMeret - 1;
-                KupacotEpit(oneBasedArray, tombMeret);
-            }
-            return oneBasedArray;
+        public static int GetSzuloIndex(int i)
+        {
+            return i / 2;
         }
 
-        private static void KupacotEpit(Array tomb, int tombMeret)
+        public static int GetBalIndex(int i)
         {
-            for (int i = tombMeret / 2; i >= 1; i--)
+            return (i == 0) ? 1 : 2 * i;
+        }
+
+        public static int GetJobbIndex(int i)
+        {
+            return (i == 0) ? 2 : 2 * i + 1;
+        }
+
+        public static int[] KupacRendezes(int[] tomb, int tombMeret)
+        {
+            KupacotEpit(tomb, tombMeret);
+            for (int i = tombMeret - 1; i >= 1; i--)
+            {
+                Csere(tomb, 0, i);
+                tombMeret = tombMeret - 1;
+                Kupacol(tomb, 0, tombMeret);
+            }
+            return tomb;
+        }
+
+        private static void KupacotEpit(int[] tomb, int tombMeret)
+        {
+            for (int i = tombMeret / 2; i >= 0; i--)
             {
                 Kupacol(tomb, i, tombMeret);
             }
         }
 
-        private static void Kupacol(Array tomb, int i, int tombMeret)
+        private static void Kupacol(int[] tomb, int i, int tombMeret)
         {
-            int bal = 2*i;
-            int jobb = 2*i + 1;
+            int bal = GetBalIndex(i);
+            int jobb = GetJobbIndex(i);
             int MAX = 0;
-            if (bal <= tombMeret && (int)tomb.GetValue(bal) > (int)tomb.GetValue(i))
+            if (bal < tombMeret && tomb[bal] > tomb[i])
             {
                 MAX = bal;
             }
@@ -147,7 +157,7 @@ namespace SzoftverSzigo
                 MAX = i;
             }
 
-            if (jobb <= tombMeret && (int)tomb.GetValue(jobb)  > (int)tomb.GetValue(MAX))
+            if (jobb < tombMeret && tomb[jobb] > tomb[MAX])
             {
                 MAX = jobb;
             }
@@ -158,25 +168,13 @@ namespace SzoftverSzigo
                 Kupacol(tomb, MAX, tombMeret);
             }
         }
-
-
         #endregion
 
-        private static void Csere(Array tomb, int i, int j)
+        private static void Csere(int[] tomb, int i, int j)
         {
-            object tmp = tomb.GetValue(i);
-            tomb.SetValue(tomb.GetValue(j), i); 
-            tomb.SetValue(tmp, j);
-        }
-
-        private static Array CreateOneBasedArray(int[] tomb, int tombMeret)
-        {
-            var oneBasedArray = Array.CreateInstance(typeof(int), new[] { tombMeret }, new[] { 1 });
-            for (int i = 1; i <= oneBasedArray.Length; i++)
-            {
-                oneBasedArray.SetValue(tomb[i - 1], i);
-            }
-            return oneBasedArray;
+            int tmp = tomb[i];
+            tomb[i] = tomb[j];
+            tomb[j] = tmp;
         }
     }
 }
