@@ -1,6 +1,7 @@
 SzoftverSzigo
 =============
 Tartalomjegyzék
+
 Egyszerű algoritmusok
 
     Sorozatszámítás
