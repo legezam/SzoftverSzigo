@@ -65,7 +65,7 @@ namespace SzoftverSzigo.Tetelek
         /// 1. lépés száma
         /// 2. i értéke
         /// 3. j értéke
-        /// 5. lépés során mekkora értékű mezőre lépett
+        /// 4. lépés során mekkora értékű mezőre lépett
         /// </summary>
         /// <returns></returns>
         public static Tuple<int, int, int, int>[] MohoKincsetKeres()
