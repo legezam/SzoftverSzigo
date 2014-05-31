@@ -52,6 +52,12 @@ namespace SzoftverSzigo
             int dinamikusResult = MohoDinamikusAlgoritmusok.DinamikusKincsetKeres(3, 3);
             Console.WriteLine("Dinamikus eredmény: legtávolabbi mező értéke: {0}\n", dinamikusResult);
 
+            var mohoHatizsakResult = MohoDinamikusAlgoritmusok.MohoHatizsak();
+            Console.WriteLine("Mohó hátizsák eredmény: [{0}]\n", GenArrayStringResult(mohoHatizsakResult));
+            Console.WriteLine("A visszaadott zárójeles kifejezések értéke:\n" +
+                              "1. tárgy értéke\n" +
+                              "2. tárgy súlya\n");
+
             //Ezt debugolva érdemes nézni
             MohoDinamikusAlgoritmusok.DinamikusKincsetKeres();
         }

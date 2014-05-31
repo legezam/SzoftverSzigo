@@ -151,6 +151,42 @@ namespace SzoftverSzigo.Tetelek
         #endregion
 
         #endregion
+
+        #region Hátizsák
+
+        /// <summary>
+        /// Tuple értékek:
+        /// 1. tárgy értéke
+        /// 2. tárgy súlya
+        /// </summary>
+        private static readonly List<Tuple<int, int>> Targyak = new List<Tuple<int, int>>()
+        {
+            new Tuple<int, int>(60, 10),
+            new Tuple<int, int>(100, 20),
+            new Tuple<int, int>(120, 30)
+        };
+
+        private static readonly int HatizsakMeret = 50;
+
+        public static Tuple<int, int>[] MohoHatizsak()
+        {
+            int fennMaradoKapacitas = HatizsakMeret;
+            List<Tuple<int, int>> result = new List<Tuple<int, int>>();
+            int i = 0;
+
+            while (fennMaradoKapacitas > 0 && i < Targyak.Count)
+            {
+                if (Targyak[i].Item2 <= fennMaradoKapacitas)
+                {
+                    result.Add(Targyak[i]);
+                    fennMaradoKapacitas = fennMaradoKapacitas - Targyak[i].Item2;
+                }
+                i = i + 1;
+            }
+            return result.ToArray();
+        } 
+
+        #endregion
     }
 
 
