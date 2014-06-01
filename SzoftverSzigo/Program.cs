@@ -4,8 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SzoftverSzigo.BTree;
 using SzoftverSzigo.Tetelek;
+using SzoftverSzigo.Trees.BinarySearchTree;
+using SzoftverSzigo.Trees.BinaryTree;
+using SzoftverSzigo.Trees.BTree;
 
 
 namespace SzoftverSzigo
@@ -33,6 +35,8 @@ namespace SzoftverSzigo
             TesztKeresoFak();
 
             TesztMohoDinamikus();
+            
+            
 
             Console.ReadLine();
         }
@@ -98,6 +102,28 @@ namespace SzoftverSzigo
             bst.TraverseNode(TraverseMode.PostOrder, postOrderResult.Add);
             Console.WriteLine("Postorder eredmény: [{0}]", Util.Util.GenArrayStringResult(postOrderResult.ToArray()));
 
+            Console.WriteLine("BST törlés teszt:");
+            bst = new BinarySearchTree<int>();
+
+            bst.AddNode(5);
+            bst.AddNode(4);
+            bst.AddNode(2);
+            bst.AddNode(3);
+            bst.AddNode(1);
+            bst.AddNode(7);
+            bst.AddNode(6);
+            bst.AddNode(8);
+
+            Console.WriteLine("Eredeti fa: \n{0}", bst);
+            bst.RemoveNode(3);
+            Console.WriteLine("3 törlése: \n{0}", bst);
+            bst.RemoveNode(6);
+            Console.WriteLine("6 törlése: \n{0}", bst);
+            bst.RemoveNode(2);
+            Console.WriteLine("2 törlése: \n{0}", bst);
+            bst.RemoveNode(5);
+            Console.WriteLine("5 törlése: \n{0}", bst);
+
             var searchResult = bst.SearchNode(-20);
             searchResult = bst.SearchNode(4);
             bst.RemoveNode(4);
@@ -107,9 +133,21 @@ namespace SzoftverSzigo
             searchResult = bst.SearchNode(6);
             bst.RemoveNode(-1);
 
+            Console.WriteLine("BST növekvő sorrendbe kiolvasás:");
             inOrderResult = new List<BinaryTreeNode<int>>();
             bst.TraverseNode(TraverseMode.InOrder, inOrderResult.Add);
             Console.WriteLine("Inorder eredmény: [{0}]", Util.Util.GenArrayStringResult(inOrderResult.ToArray()));
+
+            Console.WriteLine("BFa 50 elemmel töltve: ");
+            BTree<int> btree = new BTree<int>(4);
+            Enumerable.Range(1, 50).ToList().ForEach(btree.Insert);
+            Console.WriteLine(btree.ToString());
+            Console.WriteLine("BFa 20 elem törlése után: ");
+            Enumerable.Range(1, 20).ToList().ForEach(btree.Delete);
+            Console.WriteLine(btree.ToString());
+            Console.WriteLine("BFa 41-es elem keresése: ");
+            var result = btree.Search(41);
+            Console.WriteLine(result != null ? "OK - " + result.Value :"NOK");
         }
 
         private static void TesztOsszetettRendezesek()

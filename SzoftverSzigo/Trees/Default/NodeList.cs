@@ -1,8 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-namespace SzoftverSzigo.BTree
+namespace SzoftverSzigo.Trees.Default
 {
-    public class NodeList<T> : Collection<Node<T>>
+    public class NodeList<T> : List<Node<T>>
     {
         public NodeList() : base() { }
 
@@ -10,13 +11,13 @@ namespace SzoftverSzigo.BTree
         {
             // Add the specified number of items
             for (int i = 0; i < initialSize; i++)
-                base.Items.Add(default(Node<T>));
+                base.Add(default(Node<T>));
         }
 
         public Node<T> FindByValue(T value)
         {
             // search the list for the value
-            foreach (Node<T> node in Items)
+            foreach (Node<T> node in this)
                 if (node.Value.Equals(value))
                     return node;
 

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SzoftverSzigo.Trees.BinaryTree.BinaryTree&lt;T&gt;">
+    <Position X="2.5" Y="0.75" Width="2.25" />
+    <AssociationLine Name="Root" Type="SzoftverSzigo.Trees.BinaryTree.BinaryTreeNode&lt;T&gt;" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="2.104" />
+        <Point X="13" Y="2.104" />
+        <Point X="13" Y="9" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAEAAAACAEAAKgAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Trees\BinaryTree\BinaryTree.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Root" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SzoftverSzigo.Trees.BinaryTree.BinaryTreeNode&lt;T&gt;">
+    <Position X="11.75" Y="9" Width="2" />
+    <InheritanceLine Type="SzoftverSzigo.Trees.Default.Node&lt;T&gt;" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.5" Y="7.391" />
+        <Point X="11.5" Y="8.406" />
+        <Point X="12.917" Y="8.406" Type="JumpStart" />
+        <Point X="13.083" Y="8.406" Type="JumpEnd" />
+        <Point X="13.5" Y="8.406" />
+        <Point X="13.5" Y="9" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
+      <FileName>Trees\BinaryTree\BinaryTreenode.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Left" />
+      <Property Name="Right" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SzoftverSzigo.Trees.BinarySearchTree.BinarySearchTree&lt;T&gt;">
+    <Position X="2.5" Y="4.75" Width="2.5" />
+    <InheritanceLine Type="SzoftverSzigo.Trees.BinaryTree.BinaryTree&lt;T&gt;" FixedFromPoint="true">
+      <Path>
+        <Point X="3.75" Y="3.459" />
+        <Point X="3.75" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAIAAA=</HashCode>
+      <FileName>Trees\BinarySearchTree\BinarySearchTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SzoftverSzigo.Trees.BTree.BTree&lt;T&gt;">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <AssociationLine Name="Root" Type="SzoftverSzigo.Trees.BTree.BTreeNode&lt;T&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="5.72" />
+        <Point X="9.562" Y="5.72" />
+        <Point X="9.562" Y="9" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAEAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Trees\BTree\BTree.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Root" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SzoftverSzigo.Trees.BTree.BTreeEntry&lt;T&gt;">
+    <Position X="6" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Trees\BTree\BTreeEntry.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SzoftverSzigo.Trees.BTree.BTreeNode&lt;T&gt;">
+    <Position X="9.25" Y="9" Width="1.5" />
+    <InheritanceLine Type="SzoftverSzigo.Trees.Default.Node&lt;T&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="11.5" Y="7.391" />
+        <Point X="11.5" Y="8.438" />
+        <Point X="10" Y="8.438" />
+        <Point X="10" Y="9" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Entries" Type="SzoftverSzigo.Trees.BTree.BTreeEntry&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.568" Y="0.05" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAACIAAAAEEAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Trees\BTree\BTreeNode.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Children" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SzoftverSzigo.Trees.Default.NodeList&lt;T&gt;">
+    <Position X="13.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Trees\Default\NodeList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SzoftverSzigo.Trees.Default.Node&lt;T&gt;">
+    <Position X="10.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAgAAAAIAAwAAAAAAA=</HashCode>
+      <FileName>Trees\Default\Node.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Neighbors" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

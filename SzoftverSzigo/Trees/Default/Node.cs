@@ -1,4 +1,4 @@
-﻿namespace SzoftverSzigo.BTree
+﻿namespace SzoftverSzigo.Trees.Default
 {
     public class Node<T>
     {

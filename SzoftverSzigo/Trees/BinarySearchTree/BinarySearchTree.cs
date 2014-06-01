@@ -1,6 +1,7 @@
 ﻿using System;
+using SzoftverSzigo.Trees.BinaryTree;
 
-namespace SzoftverSzigo.BTree
+namespace SzoftverSzigo.Trees.BinarySearchTree
 {
     public class BinarySearchTree<T> : BinaryTree<T>
         where T : IComparable

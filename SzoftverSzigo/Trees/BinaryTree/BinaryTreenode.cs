@@ -1,4 +1,6 @@
-﻿namespace SzoftverSzigo.BTree
+﻿using SzoftverSzigo.Trees.Default;
+
+namespace SzoftverSzigo.Trees.BinaryTree
 {
     public class BinaryTreeNode<T> : Node<T>
     {
