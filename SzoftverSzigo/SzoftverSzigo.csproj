@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Trees\BinarySearchTree\BinarySearchTree.cs" />
     <Compile Include="Trees\BinaryTree\BinaryTree.cs" />
-    <Compile Include="Trees\BinaryTree\BinaryTreenode.cs" />
+    <Compile Include="Trees\BinaryTree\BinaryTreeNode.cs" />
     <Compile Include="Trees\BTree\BTree.cs" />
     <Compile Include="Trees\BTree\BTreeEntry.cs" />
     <Compile Include="Trees\BTree\BTreeNode.cs" />

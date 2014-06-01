@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using SzoftverSzigo.Tetelek;
 using SzoftverSzigo.Trees.BinarySearchTree;
@@ -35,8 +36,11 @@ namespace SzoftverSzigo
             TesztKeresoFak();
 
             TesztMohoDinamikus();
-            
-            
+
+            Console.WriteLine("A konzol törlése és folytatáshoz nyomj entert...");
+            Console.ReadLine();
+
+            BTreeSzimulacio();
 
             Console.ReadLine();
         }
@@ -283,6 +287,48 @@ namespace SzoftverSzigo
             //Maximumkiválasztás
             int maximumKivalasztasResult = EgyszeruTetelek.MaximumKivalasztas(tomb, tomb.Length);
             Console.WriteLine("Maximumkiválasztás: {0}\n", maximumKivalasztasResult);
+        }
+
+        private static void BTreeSzimulacio()
+        {
+            BTree<int> tree = new BTree<int>(4);
+            
+            for (int i = 1; i < 50; i++)
+            {
+                Console.Clear();
+                tree.Insert(i);
+                Console.WriteLine(tree.ToString());
+                Thread.Sleep(500);
+            }
+
+            Console.WriteLine("Nyomj entert...");
+            Console.ReadLine();
+
+            
+            tree = new BTree<int>(4);
+            for (int i = 0; i < 60; i++)
+            {
+                Console.Clear();
+                tree.Insert(rand.Next(100));
+                Console.WriteLine(tree.ToString());
+                Thread.Sleep(500);
+    
+            }
+            Console.WriteLine("Nyomj entert...");
+            Console.ReadLine();
+
+            tree = new BTree<int>(4);
+
+            for (int i = 50; i > 0; i--)
+            {
+                Console.Clear();
+                tree.Insert(i);
+                Console.WriteLine(tree.ToString());
+                Thread.Sleep(500);
+            }
+
+            Console.WriteLine("Nyomj entert...");
+            Console.ReadLine();
         }
     }
 }
