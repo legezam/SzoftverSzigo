@@ -40,6 +40,7 @@ Fák
 
     Bináris fa
     Bináris keresőfa (hozzáadás, törlés, keresés)
+    B-Fa (hozzáadás, törlés, keresés)
 
 Mohó algoritmusok és dinamikus programozás
 
