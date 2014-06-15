@@ -56,6 +56,8 @@
     <Compile Include="Tetelek\OsszetettTetelek.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trees\RBTree\RBTree.cs" />
+    <Compile Include="Trees\RBTree\RBTreeNode.cs" />
     <Compile Include="Util\Util.cs" />
   </ItemGroup>
   <ItemGroup>

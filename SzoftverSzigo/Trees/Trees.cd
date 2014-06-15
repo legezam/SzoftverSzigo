@@ -21,7 +21,7 @@
     <Position X="11.75" Y="9" Width="2" />
     <InheritanceLine Type="SzoftverSzigo.Trees.Default.Node&lt;T&gt;" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="11.5" Y="7.391" />
+        <Point X="11.5" Y="7.583" />
         <Point X="11.5" Y="8.406" />
         <Point X="12.917" Y="8.406" Type="JumpStart" />
         <Point X="13.083" Y="8.406" Type="JumpEnd" />
@@ -31,7 +31,7 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
-      <FileName>Trees\BinaryTree\BinaryTreenode.cs</FileName>
+      <FileName>Trees\BinaryTree\BinaryTreeNode.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Left" />
@@ -61,7 +61,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAEAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAABAkAACAEgAAAAAAQABEIAQBQAAAAAAAgAAA=</HashCode>
       <FileName>Trees\BTree\BTree.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -71,7 +71,7 @@
   <Class Name="SzoftverSzigo.Trees.BTree.BTreeEntry&lt;T&gt;">
     <Position X="6" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Trees\BTree\BTreeEntry.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -80,7 +80,7 @@
     <Position X="9.25" Y="9" Width="1.5" />
     <InheritanceLine Type="SzoftverSzigo.Trees.Default.Node&lt;T&gt;" ManuallyRouted="true">
       <Path>
-        <Point X="11.5" Y="7.391" />
+        <Point X="11.5" Y="7.583" />
         <Point X="11.5" Y="8.438" />
         <Point X="10" Y="8.438" />
         <Point X="10" Y="9" />
@@ -92,7 +92,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAACIAAAAEEAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAACIEAAAEEAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Trees\BTree\BTreeNode.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -112,7 +112,7 @@
   <Class Name="SzoftverSzigo.Trees.Default.Node&lt;T&gt;">
     <Position X="10.5" Y="5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAgAAAAIAAwAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAgAAAAIAAwAAAAAAA=</HashCode>
       <FileName>Trees\Default\Node.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

@@ -36,6 +36,25 @@
         {
             return this.Value.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (object.ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj is Node<T>)
+            {
+                return this.Value.Equals((obj as Node<T>).Value);
+            }
+
+            return base.Equals(obj);
+        }
     }
 }
 
