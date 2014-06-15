@@ -26,35 +26,35 @@ namespace SzoftverSzigo
 
         static void Main(string[] args)
         {
-            //TesztEgyszeruTetelek();
+            TesztEgyszeruTetelek();
 
-            //TesztOsszetettTetelek();
+            TesztOsszetettTetelek();
 
-            //TesztEgyszeruRendezesek();
+            TesztEgyszeruRendezesek();
 
-            //TesztOsszetettRendezesek();
+            TesztOsszetettRendezesek();
 
-            //TesztKeresoFak();
+            TesztKeresoFak();
 
-            //TesztMohoDinamikus();
+            TesztMohoDinamikus();
 
-            //Console.WriteLine("A konzol törlése és folytatáshoz nyomj entert...");
-            //Console.ReadLine();
+            Console.WriteLine("A konzol törlése és folytatáshoz nyomj entert...");
+            Console.ReadLine();
 
-            //BTreeSzimulacio();
+            BTreeSzimulacio();
 
-            var rbtree = new RBTree<int>();
-            for (int i = 0; i < 10; i++)
-            {
-                rbtree.AddNode(rand.Next(1000));
-            }
-            Console.WriteLine(rbtree.ToString());
-           RedBlack rb = new RedBlack();
-            rb.Add(10, 3);
-            rb.Add(20, 4);
-            rb.Add(30, 4);
-            rb.Add(6, 4);
-            rb.Add(7, 4);
+           // var rbtree = new RBTree<int>();
+           // for (int i = 0; i < 10; i++)
+           // {
+           //     rbtree.AddNode(rand.Next(1000));
+           // }
+           // Console.WriteLine(rbtree.ToString());
+           //RedBlack rb = new RedBlack();
+           // rb.Add(10, 3);
+           // rb.Add(20, 4);
+           // rb.Add(30, 4);
+           // rb.Add(6, 4);
+           // rb.Add(7, 4);
 
             Console.ReadLine();
         }
