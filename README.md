@@ -48,5 +48,6 @@ Mohó algoritmusok és dinamikus programozás
     Kincsgyűjtés: mohó és dinamikus
     Hátizsák probléma: mohó és dinamikus
     Legnagyobb részhalmaz(LCS): rekurzív és dinamikus
-
+    Piros-fekete fa (draft állapot)
+    
 Ha valami bugot találsz, kérlek, szólj! Köszönöm!
